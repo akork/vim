@@ -41,7 +41,7 @@ cabbrev te terminal
 
 set hidden | " hide unsaved
 set backspace=indent,eol,start | " no backspace restriction
-set whichwrap= | " move to next line
+set whichwrap=h,l,>,< | " move to next line
 set timeoutlen=500 ttimeoutlen=20
 
 set iskeyword-=_
@@ -88,6 +88,12 @@ let mapleader = "q"
 
 " BASIC {{{
 
+" splitting
+noremap <c-x>0 <c-w>q
+noremap <c-x>2 <c-w>s
+noremap <c-x>3 <c-w>v
+noremap <c-x><c-o> <c-w><c-w>
+
 " basic navigation
 noremap c j
 noremap C 15j
@@ -102,7 +108,7 @@ noremap N W
 noremap s ^
 noremap _ $
 
-noremap d 20j
+noremap g 20j
 noremap f 20k
 
 " n-w swap
@@ -115,8 +121,9 @@ onoremap l c
 noremap e d
 onoremap e d
 
+
 " visual
-noremap g V
+noremap d V
 noremap z <c-v>
 
 " yank
@@ -144,8 +151,13 @@ noremap xo zO
 
 " duplicate
 "vnoremap <C-d> :t'><CR>gv<esc>j
-"vnoremap <C-d> y'>p
+vnoremap <C-d> y'>p
+nnoremap <c-d> yyp
 "nnoremap <C-d> :t.<CR>
+
+noremap h t
+noremap <space>r gg
+noremap <space>c G
 
 " copy range
 noremap - :-,-t.<left><left><left><left>
@@ -490,3 +502,5 @@ function! NetrwMapping()
 endfunction
 let g:netrw_banner = 0
 " }}}
+
+

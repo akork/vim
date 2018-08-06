@@ -4,6 +4,8 @@ source /Users/Aleksey/Dropbox/Settings/vim/min.vim
 " onoremap n t
 " onoremap h T
 
+" noremap <c-d> yyp
+
 noremap xm :fold<cr>
 
 " for vim emulators:
