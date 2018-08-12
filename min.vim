@@ -80,19 +80,51 @@ set wildmode=longest,list,full
 set wildmenu
 set wildcharm=<Tab>
 
+
 " keep a 5 line buffer for the cursor from top/bottom of window
-set scrolloff=7
+set scrolloff=10
 " }}}
 
 let mapleader = "q"
 
 " BASIC {{{
 
+" emacs sync
+" source
+noremap	<c-^> :w<cr>:so %<cr>
+
+" save/exit
+noremap <c-x><c-s> <esc>:w<cr>
+noremap <c-x>s <esc>:wa<cr>
+noremap <c-x><c-c> <esc>:wqa<cr>
+
+" search
+noremap <esc><c-s> <esc>/
+noremap <c-m-s> <esc>/
+inoremap <esc><c-s> <esc>/
+nnoremap <esc><c-r> :noh<cr>
+inoremap <esc><c-r> <esc>:noh<cr>
+cnoremap <c-s> <cr>n
+nnoremap <c-s> n
+inoremap <c-s> <esc>n
+cnoremap <c-r> <cr>N
+nnoremap <c-r> N
+inoremap <c-r> <esc>N
+
+" undo
+inoremap <c-_> <esc>u
+noremap <c-_> u
+noremap <esc>_ <c-r>
+inoremap <esc>_ <esc><c-r>
+noremap <m-_> <c-r>
+inoremap <m-_> <esc><c-r>
+
 " splitting
+
 noremap <c-x>0 <c-w>q
-noremap <c-x>2 <c-w>s
+noremap <c-x>1 <c-w>s
 noremap <c-x>3 <c-w>v
-noremap <c-x><c-o> <c-w><c-w>
+noremap <c-x>o <c-w>w
 
 " basic navigation
 noremap c j
@@ -103,6 +135,7 @@ noremap R $vk
 noremap G vk$o
 noremap F v$ok
 
+
 noremap t l
 noremap m h
 noremap n w
@@ -112,6 +145,7 @@ noremap d ^
 noremap s $
 
 noremap <nowait> g 20j
+nnoremap <nowait> g 20j
 noremap f 20k
 noremap <PageDown> 20j
 noremap <PageUp> 20k
@@ -128,7 +162,6 @@ onoremap e d
 
 
 " visual
-noremap d V
 noremap z <c-v>
 
 " yank
@@ -160,7 +193,7 @@ vnoremap <C-d> y'>p
 nnoremap <c-d> yyp
 "nnoremap <C-d> :t.<CR>
 
-noremap h t
+noremap h /
 noremap <space>r gg
 noremap <space>c G
 
